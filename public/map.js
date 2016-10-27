@@ -82,7 +82,7 @@ $(document).ready(function () {
     // console.log(data.latlng.lat);
     // console.log(data.latlng.lng);
 
-    $('ul#list').append('<li>' + data.place + '<span style="float:right" class="like-Unlike">Like</span></li>')
+    $('ul#list').append('<li>' + data.place + '</li>')
   })
 
 
