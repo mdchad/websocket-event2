@@ -12,7 +12,7 @@ $(function () {
   var $username = $('#username')
   var $pacInput = $('#pac-input')
   var $pacInputForm = $('#pac-input-form')
-  var $eventHere = $('#eventHere')
+  var $success = $('#success')
 
   $messageForm.submit(function (e) {
     e.preventDefault()
@@ -39,10 +39,10 @@ $(function () {
     e.preventDefault()
     console.log('submitted')
     socket.emit('new user', $username.val(), function (data) {
-      // if (data) {
-        // $userFormArea.hide()
-        // $messageArea.show()
-      // }
+      if (data) {
+        $userForm.hide()
+        $success.show()
+      }
     })
     $username.val(' ')
   })
@@ -79,8 +79,8 @@ $(document).ready(function () {
 
   socket.on('geocoded latlong', function(data) {
     var marker = L.marker([data.latlng.lat, data.latlng.lng]).addTo(mymap).bindPopup(data.user);
-    console.log(data.latlng.lat);
-    console.log(data.latlng.lng);
+    // console.log(data.latlng.lat);
+    // console.log(data.latlng.lng);
 
     $('ul#list').append('<li>' + data.place + '<span style="float:right" class="like-Unlike">Like</span></li>')
   })

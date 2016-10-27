@@ -5,6 +5,7 @@ var io = require('socket.io').listen(server)
 var users = []
 var connections = []
 var geocoder = require('geocoder')
+var plot = []
 
 app.use(express.static(__dirname + '/public/'))
 
@@ -65,6 +66,8 @@ io.sockets.on('connection', function (socket) {
         latlong = response.results[0].geometry['location']
       }
       var searchTerm = {place: data, latlng: latlong, user: socket.username}
+      plot.push(searchTerm)
+      console.log(plot)
       io.sockets.emit('geocoded latlong', searchTerm )
     })
   })

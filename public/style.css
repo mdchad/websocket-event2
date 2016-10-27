@@ -189,3 +189,9 @@ div.popup {
 span {
   cursor: pointer;
 }
+
+#success{
+  display: none;
+  float: right;
+  margin-left: 300px;
+}
